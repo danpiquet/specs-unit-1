@@ -23,7 +23,7 @@ const Square = (props) => {
         <img src="https://i.ibb.co/jTN7qcs/X.png" alt="X" />
       ) : props.squareValue === "POOP" ? (
         <img
-          src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c39c.png"
+          src="https://www.freeiconspng.com/thumbs/poop-emoji-png/poop-png-emoji-island-0.png"
           alt="POOP"
         />
       ) : (

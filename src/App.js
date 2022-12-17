@@ -39,7 +39,6 @@ function App() {
         setTimeout(() => {
           handleClick();
         }, 5000);
-
         setSquares([
           "POOP",
           "POOP",
