@@ -4,19 +4,7 @@ import "./App.css";
 import Square from "./Square";
 
 function App() {
-  const [squares, setSquares] = useState([
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ]);
+  const [squares, setSquares] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState(true);
   const handleClick = () => {
     setSquares(["", "", "", "", "", "", "", "", ""]);
@@ -43,7 +31,26 @@ function App() {
           handleClick();
         }, 5000);
 
-        return `${arr[a]}'s won the game!`;
+        return arr.includes("POOP")
+          ? "Lame...nobody wins. Click reset or I'll do it for you"
+          : `${arr[a]}'s won the game! Board will reset in 5 seconds`;
+        // return `${arr[a]}'s won the game! Board will reset in 5 seconds`;
+      } else if (!arr.includes("")) {
+        setTimeout(() => {
+          handleClick();
+        }, 5000);
+
+        setSquares([
+          "POOP",
+          "POOP",
+          "POOP",
+          "POOP",
+          "POOP",
+          "POOP",
+          "POOP",
+          "POOP",
+          "POOP",
+        ]);
       }
     }
     return "Who will win?";

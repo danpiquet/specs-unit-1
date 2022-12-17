@@ -14,22 +14,23 @@ const Square = (props) => {
       }
     }
   };
+  //added custom O and X images and an image to handle the event of a tie with a double-nested ternary
   return (
     <div className="square" onClick={() => handleClick()}>
       {props.squareValue === "O" ? (
         <img src="https://i.ibb.co/fqJdjfp/O.png" alt="O" />
+      ) : props.squareValue === "X" ? (
+        <img src="https://i.ibb.co/jTN7qcs/X.png" alt="X" />
+      ) : props.squareValue === "POOP" ? (
+        <img
+          src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c39c.png"
+          alt="POOP"
+        />
       ) : (
         props.squareValue
       )}
-      {/* {console.log(props.squares, props.player)} */}
     </div>
   );
 };
-
-{
-  /* <a href="https://imgbb.com/"><img src="https://i.ibb.co/jTN7qcs/X.png" alt="X" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/fqJdjfp/O.png" alt="O" border="0"></a> */
-}
-
 
 export default Square;
