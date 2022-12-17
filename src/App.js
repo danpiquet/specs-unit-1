@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Square from "./Square";
 
 function App() {
-  const myString = "My name is Dan";
   const [squares, setSquares] = useState([
     "",
     "",
@@ -38,22 +37,27 @@ function App() {
 
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      let tempArr = [];
-      tempArr.push(a, b, c);
-      console.log(tempArr, tempArr.reverse())
-      return arr === tempArr || arr === tempArr.reverse()
-        ? `${arr[a]}'s won the game!`
-        : "Who will win?";
-    }
+      if (arr[a] && arr[a] === arr[b] && arr[a] === arr[c]) {
+        //added a timer to automatically clear the board after 5 seconds. Tried to figure out how to render a countdown timer but went down a deep rabbit hole that I never found the bottom of.
+        setTimeout(() => {
+          handleClick();
+        }, 5000);
 
-    // lines.forEach((el) => {
-    //   const [a, b, c] = lines[el.index];
-    //   let tempArr = [];
-    //   tempArr.push(a, b, c);
-    //   return arr === tempArr || arr === tempArr.reverse()
-    //     ? `${arr[a]} won the game!`
-    //     : "Who will win?";
-    // });
+        return `${arr[a]}'s won the game!`;
+      }
+    }
+    return "Who will win?";
+
+    // couldn't quite get the forEach() to work here
+
+    //   lines.forEach((el, index) => {
+    //     const [a, b, c] = lines[index];
+    //     console.log(el, index)
+    //     if (arr[a] && arr[a] === arr[b] && arr[a] === arr[c]) {
+    //       return `${arr[a]} won the game!`;
+    //     }
+    //   });
+    //   return "Who will win?";
   };
 
   return (
@@ -74,6 +78,8 @@ function App() {
         })}
       </div>
       <button onClick={() => handleClick()}>Reset</button>
+      <br />
+      <br />
     </div>
   );
 }
